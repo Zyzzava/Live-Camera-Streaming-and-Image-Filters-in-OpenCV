@@ -1,7 +1,7 @@
 venv/
 bin/
 build/
-performance_resolutions.csv
+performance_resolution.csv
 performance_transforms.csv
 lib/
 .vscode/
