@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named RealtimeVP
+# Target rules for targets named OpenGLWebcam
 
 # Build rule for target.
-RealtimeVP: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 RealtimeVP
-.PHONY : RealtimeVP
+OpenGLWebcam: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 OpenGLWebcam
+.PHONY : OpenGLWebcam
 
 # fast build rule for target.
-RealtimeVP/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RealtimeVP.dir/build.make CMakeFiles/RealtimeVP.dir/build
-.PHONY : RealtimeVP/fast
+OpenGLWebcam/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGLWebcam.dir/build.make CMakeFiles/OpenGLWebcam.dir/build
+.PHONY : OpenGLWebcam/fast
 
 filters/filters.o: filters/filters.cpp.o
 .PHONY : filters/filters.o
 
 # target to build an object file
 filters/filters.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RealtimeVP.dir/build.make CMakeFiles/RealtimeVP.dir/filters/filters.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGLWebcam.dir/build.make CMakeFiles/OpenGLWebcam.dir/filters/filters.cpp.o
 .PHONY : filters/filters.cpp.o
 
 filters/filters.i: filters/filters.cpp.i
@@ -142,7 +142,7 @@ filters/filters.i: filters/filters.cpp.i
 
 # target to preprocess a source file
 filters/filters.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RealtimeVP.dir/build.make CMakeFiles/RealtimeVP.dir/filters/filters.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGLWebcam.dir/build.make CMakeFiles/OpenGLWebcam.dir/filters/filters.cpp.i
 .PHONY : filters/filters.cpp.i
 
 filters/filters.s: filters/filters.cpp.s
@@ -150,7 +150,7 @@ filters/filters.s: filters/filters.cpp.s
 
 # target to generate assembly for a file
 filters/filters.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RealtimeVP.dir/build.make CMakeFiles/RealtimeVP.dir/filters/filters.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGLWebcam.dir/build.make CMakeFiles/OpenGLWebcam.dir/filters/filters.cpp.s
 .PHONY : filters/filters.cpp.s
 
 main.o: main.cpp.o
@@ -158,7 +158,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RealtimeVP.dir/build.make CMakeFiles/RealtimeVP.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGLWebcam.dir/build.make CMakeFiles/OpenGLWebcam.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -166,7 +166,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RealtimeVP.dir/build.make CMakeFiles/RealtimeVP.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGLWebcam.dir/build.make CMakeFiles/OpenGLWebcam.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -174,7 +174,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RealtimeVP.dir/build.make CMakeFiles/RealtimeVP.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OpenGLWebcam.dir/build.make CMakeFiles/OpenGLWebcam.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -185,7 +185,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... RealtimeVP"
+	@echo "... OpenGLWebcam"
 	@echo "... filters/filters.o"
 	@echo "... filters/filters.i"
 	@echo "... filters/filters.s"

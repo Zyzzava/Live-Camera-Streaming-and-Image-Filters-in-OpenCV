@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7. Semester/Visual Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/filters/filters.cpp" "CMakeFiles/OpenCVLab.dir/filters/filters.cpp.o" "gcc" "CMakeFiles/OpenCVLab.dir/filters/filters.cpp.o.d"
-  "/Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7. Semester/Visual Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/main.cpp" "CMakeFiles/OpenCVLab.dir/main.cpp.o" "gcc" "CMakeFiles/OpenCVLab.dir/main.cpp.o.d"
+  "/Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7. Semester/Visual Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/filters/filters.cpp" "CMakeFiles/OpenGLWebcam.dir/filters/filters.cpp.o" "gcc" "CMakeFiles/OpenGLWebcam.dir/filters/filters.cpp.o.d"
+  "/Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7. Semester/Visual Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/main.cpp" "CMakeFiles/OpenGLWebcam.dir/main.cpp.o" "gcc" "CMakeFiles/OpenGLWebcam.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

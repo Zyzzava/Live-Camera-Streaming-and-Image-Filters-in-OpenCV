@@ -1,4 +1,4 @@
-CMakeFiles/RealtimeVP.dir/main.cpp.o: \
+CMakeFiles/OpenGLWebcam.dir/main.cpp.o: \
   /Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7.\ Semester/Visual\ Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/main.cpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
@@ -780,6 +780,11 @@ CMakeFiles/RealtimeVP.dir/main.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/stack.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/print \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/unistd.h \
+  /opt/homebrew/include/GL/glew.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glu.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers/OpenGLAvailability.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/os/availability.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl.h \
   /opt/homebrew/Cellar/opencv/4.12.0_11/include/opencv4/opencv2/opencv.hpp \
   /opt/homebrew/Cellar/opencv/4.12.0_11/include/opencv4/opencv2/opencv_modules.hpp \
   /opt/homebrew/Cellar/opencv/4.12.0_11/include/opencv4/opencv2/core.hpp \
@@ -910,4 +915,5 @@ CMakeFiles/RealtimeVP.dir/main.cpp.o: \
   /opt/homebrew/Cellar/opencv/4.12.0_11/include/opencv4/opencv2/video.hpp \
   /opt/homebrew/Cellar/opencv/4.12.0_11/include/opencv4/opencv2/video/tracking.hpp \
   /opt/homebrew/Cellar/opencv/4.12.0_11/include/opencv4/opencv2/video/background_segm.hpp \
+  /opt/homebrew/include/GLFW/glfw3.h \
   /Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7.\ Semester/Visual\ Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/filters/filters.h
