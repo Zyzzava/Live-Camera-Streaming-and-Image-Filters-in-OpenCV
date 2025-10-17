@@ -1,0 +1,6 @@
+FilterName,ExecutionMode,HasTransform,FPS,FrameTime_ms
+Blur,CPU,Yes,30.9792,32.2797
+Pixelation,CPU,Yes,30.8501,32.4148
+Blur,CPU,No,30.8237,32.4426
+,GPU,Yes,30.8096,32.4575
+Blur,CPU,Yes,30.7964,32.4714

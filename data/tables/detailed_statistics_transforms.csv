@@ -1,0 +1,13 @@
+,,FPS,FPS,FPS,FPS,FrameTime_ms,FrameTime_ms
+,,mean,std,min,max,mean,std
+ExecutionMode,FilterName,,,,,,
+CPU,Blur,30.49,0.33,30.03,30.91,32.8,0.35
+CPU,Comic,6.0,0.01,5.99,6.02,166.65,0.29
+CPU,Edge,30.73,0.13,30.6,30.9,32.54,0.14
+CPU,Grayscale,30.58,0.24,30.26,30.94,32.7,0.26
+CPU,Pixelation,30.65,0.11,30.5,30.82,32.63,0.12
+GPU,Blur,30.2,0.18,29.91,30.38,33.11,0.2
+GPU,Comic,30.33,0.35,29.99,30.91,32.98,0.37
+GPU,Edge,30.4,0.26,30.13,30.77,32.9,0.28
+GPU,Grayscale,30.38,0.13,30.25,30.54,32.91,0.14
+GPU,Pixelation,30.34,0.11,30.24,30.49,32.97,0.12

@@ -1,0 +1,6 @@
+FilterName,ExecutionMode,HasTransform,FPS,FrameTime_ms
+Comic,CPU,Yes,5.99163,166.9
+Comic,CPU,Yes,5.99247,166.876
+Comic,CPU,Yes,6.00003,166.666
+Comic,CPU,No,6.00207,166.609
+Comic,CPU,Yes,6.01769,166.177

@@ -1,0 +1,6 @@
+FilterName,ExecutionMode,HasTransform,FPS,FrameTime_ms
+Comic,CPU,No,6.03195,165.784
+Comic,CPU,No,11.8428,84.4397
+Comic,CPU,No,29.828,33.5255
+Pixelation,GPU,No,30.0388,33.2903
+Grayscale,GPU,No,30.0633,33.2631

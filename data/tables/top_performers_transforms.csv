@@ -1,0 +1,6 @@
+FilterName,ExecutionMode,HasTransform,FPS,FrameTime_ms
+Grayscale,CPU,Yes,30.9436,32.3168
+Comic,GPU,Yes,30.9122,32.3497
+Blur,CPU,Yes,30.9109,32.3511
+Edge,CPU,Yes,30.9033,32.359
+Edge,CPU,Yes,30.8405,32.4249
