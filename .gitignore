@@ -5,3 +5,7 @@ performance_resolutions.csv
 performance_transforms.csv
 lib/
 .vscode/
+__pycache__/
+pyvenv.cfg
+main
+main.dSYM/
