@@ -14,7 +14,8 @@
 \contentsline {subsection}{\numberline {3.2}Resolution Benchmark Results}{6}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Resolution Scaling}{6}{subsubsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.3}Performance Tables}{6}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}GPU Speedup Factors}{6}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.1}GPU Speedup Factors resolution}{6}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}GPU Speedup Factors transforms}{7}{subsubsection.3.3.2}%
 \contentsline {section}{\numberline {4}Analysis and Discussion}{7}{section.4}%
 \contentsline {subsection}{\numberline {4.1}CPU vs GPU Performance}{7}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Filter Complexity}{7}{subsection.4.2}%

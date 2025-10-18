@@ -71,6 +71,7 @@ The system consists of three main components:
     \item \textbf{Rendering}: OpenGL for display and GPU acceleration
 \end{itemize}
 
+
 \subsection{Implemented Filters}
 Six different image filters were implemented:
 \begin{enumerate}
@@ -102,10 +103,10 @@ Three resolutions were benchmarked:
 
 \subsection{Benchmarking Procedure}
 \begin{itemize}
-    \item Each test configuration ran for 300 frames (transforms) or 50 frames (resolution)
+    \item Each test configuration ran for 50 frames (transforms) or 50 frames (resolution) due to hardware limitations
     \item Frame times were measured using high-resolution clock
     \item Average FPS and frame time statistics were calculated
-    \item Tests were automated to ensure consistency
+    \item Tests were automated to ensure consistency, could have been done manually, but fear of human error and tendency to forget configurations made automation preferable
 \end{itemize}
 
 \section{Results}
@@ -146,7 +147,7 @@ Three resolutions were benchmarked:
 
 \subsection{Performance Tables}
 
-\subsubsection{GPU Speedup Factors}
+\subsubsection{GPU Speedup Factors resolution}
 \begin{table}[H]
     \centering
     \caption{GPU speedup over CPU for each filter}
@@ -155,12 +156,31 @@ Three resolutions were benchmarked:
         \toprule
         Filter & Speedup Factor \\
         \midrule
-        None & X.XX× \\
-        Grayscale & X.XX× \\
-        Blur & X.XX× \\
-        Edge Detection & X.XX× \\
-        Pixelation & X.XX× \\
-        Comic Art & X.XX× \\
+        None & 0 \\
+        Grayscale & 0.9911051151304507 \\
+        Blur & 0.9832661231455018 \\
+        Edge Detection & 0.9905437890552572 \\
+        Pixelation & 0.9921230970698969 \\
+        Comic Art & 5.056022571870571 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{GPU Speedup Factors transforms}
+\begin{table}[H]
+    \centering
+    \caption{GPU speedup over CPU for each filter}
+    \label{tab:speedup}
+    \begin{tabular}{lc}
+        \toprule
+        Filter & Speedup Factor \\
+        \midrule
+        None & 0 \\
+        Grayscale & 0.9925609416695316 \\
+        Blur & 0.9892095840826678 \\
+        Edge Detection & 0.9861874029899519 \\
+        Pixelation & 0.9961871093584084 \\
+        Comic Art & 4.996309606519084 \\
         \bottomrule
     \end{tabular}
 \end{table}

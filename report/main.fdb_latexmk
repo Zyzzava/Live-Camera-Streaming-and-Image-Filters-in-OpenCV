@@ -1,5 +1,5 @@
 # Fdb version 4
-["bibtex main"] 0 "main.aux" "main.bbl" "main" 1760787069.26047 0
+["bibtex main"] 0 "main.aux" "main.bbl" "main" 1760787716.256 0
   "/usr/local/texlive/2025/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "main.aux" 0 -1 0 "pdflatex"
   "references.bib" 0 -1 0 ""
@@ -7,11 +7,11 @@
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1760787066.95579 "/Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7. Semester/Visual Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/report/main.tex" "main.pdf" "main" 1760787069.26063 0
+["pdflatex"] 1760787714.06062 "/Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7. Semester/Visual Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/report/main.tex" "main.pdf" "main" 1760787716.25611 0
   "../data/plots/performance_comparison_transforms.png" 1760785236.54384 320669 5c12f5389065554e4e62c6c7a5fbf773 ""
   "../data/plots/resolution_impact.png" 1760785247.72851 649567 1d305807199ecae33909bb9ed8990b4a ""
   "../data/plots/transform_comparison.png" 1760785240.00832 186486 838b07b1091983eb31d87100f6ee1846 ""
-  "/Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7. Semester/Visual Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/report/main.tex" 1760787066.72847 5933 1fdd027a33bf9cfcefbd342be31ca8d0 ""
+  "/Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7. Semester/Visual Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/report/main.tex" 1760787713.79866 6675 783c91cf564dddc13681c861e0509bfd ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -107,11 +107,11 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1757580074 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1757580055 3345731 390899889ec597bfc9a15908e0f9f7d8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "main.aux" 1760787069.02838 4452 294366befb23a6eaa0db15d9c07504e8 "pdflatex"
+  "main.aux" 1760787716.05941 4851 c4a44802db579e64b4350c3effa6c678 "pdflatex"
   "main.bbl" 0 -1 0 "bibtex main"
-  "main.out" 1760787069.02907 3579 2e19d2b10f46a90512990e8d4938d4db "pdflatex"
-  "main.tex" 1760787066.72847 5933 1fdd027a33bf9cfcefbd342be31ca8d0 ""
-  "main.toc" 1760787069.02924 2033 7197425dcedbd8d24dba44d343acbd53 "pdflatex"
+  "main.out" 1760787716.06027 3864 b4f4546559bc16b2aa394faf79b76269 "pdflatex"
+  "main.tex" 1760787713.79866 6675 783c91cf564dddc13681c861e0509bfd ""
+  "main.toc" 1760787716.06044 2150 bb2d9ef4d9375cc38b732b6066782a3f "pdflatex"
   (generated)
   "main.aux"
   "main.log"
