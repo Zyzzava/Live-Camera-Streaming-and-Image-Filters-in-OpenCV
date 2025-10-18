@@ -395,13 +395,10 @@ void runResolutionBenchmark(
     int totalTests = numFilters * 2 * resolutions.size();
     int currentTest = 0;
 
-    cout << "\n========================================" << endl;
-    cout << "STARTING RESOLUTION BENCHMARK" << endl;
+    cout << "Resolution benchmark" << endl;
     cout << "Total tests: " << totalTests << endl;
     cout << "Frames per test: " << BENCHMARK_FRAMES << endl;
     cout << "Resolutions to test: " << resolutions.size() << endl;
-    cout << "========================================\n"
-         << endl;
 
     // No transform for resolution testing
     TransformParams noTransform;
@@ -413,7 +410,7 @@ void runResolutionBenchmark(
     // Loop through each resolution
     for (const auto &res : resolutions)
     {
-        cout << "\n*** Testing Resolution: " << res.name << " ***" << endl;
+        cout << "Testing Resolution: " << res.name << endl;
 
         // Set camera resolution
         cap.set(CAP_PROP_FRAME_WIDTH, res.width);
@@ -422,7 +419,7 @@ void runResolutionBenchmark(
         // Verify resolution was set
         int actualWidth = cap.get(CAP_PROP_FRAME_WIDTH);
         int actualHeight = cap.get(CAP_PROP_FRAME_HEIGHT);
-        cout << "  Actual resolution: " << actualWidth << "x" << actualHeight << endl;
+        cout << "Actual resolution: " << actualWidth << "x" << actualHeight << endl;
 
         // Update window size
         glfwSetWindowSize(window, actualWidth, actualHeight);
@@ -575,7 +572,7 @@ void runResolutionBenchmark(
                 data.frameTime = avgFrameTime;
                 performanceLog.push_back(data);
 
-                cout << "    ✓ Avg FPS: " << fixed << setprecision(2) << avgFPS
+                cout << "avg FPS: " << fixed << setprecision(2) << avgFPS
                      << " | Frame Time: " << avgFrameTime << "ms\n"
                      << endl;
             }
@@ -591,7 +588,7 @@ void runResolutionBenchmark(
     glfwGetFramebufferSize(window, &fbWidth, &fbHeight);
     glViewport(0, 0, fbWidth, fbHeight);
 
-    cout << "RESOLUTION BENCHMARK COMPLETE" << endl;
+    cout << "Done with resolution testing" << endl;
     cout << "Total measurements: " << performanceLog.size() << endl;
     cout << "Resolution restored to: " << originalWidth << "x" << originalHeight << endl;
 
@@ -672,7 +669,7 @@ void runAutomatedBenchmark(
     int totalTests = numFilters * 2 * transformConfigs.size();
     int currentTest = 0;
 
-    cout << "STARTING AUTOMATED BENCHMARK" << endl;
+    cout << "Starting the automated transform benchmarking" << endl;
     cout << "Total tests: " << totalTests << endl;
     cout << "Frames per test: " << BENCHMARK_FRAMES << endl;
     cout << "Transform configurations: " << transformConfigs.size() << endl;
@@ -683,7 +680,7 @@ void runAutomatedBenchmark(
         const TransformParams &currentTransform = transformConfigs[transformIdx];
         const string &transformName = transformNames[transformIdx];
 
-        cout << "\n*** Testing Transform Config: " << transformName << " ***" << endl;
+        cout << "Testing Transform Config: " << transformName << endl;
         cout << "  Translation: (" << currentTransform.translateX << ", " << currentTransform.translateY << ")" << endl;
         cout << "  Scale: " << currentTransform.scale << endl;
         cout << "  Rotation: " << currentTransform.rotation << "°\n"
@@ -806,8 +803,8 @@ void runAutomatedBenchmark(
                     double frameTime = chrono::duration<double, milli>(frameEnd - frameStart).count();
                     frameTimes.push_back(frameTime);
 
-                    // Progress indicator every 100 frames
-                    if ((frame + 1) % 100 == 0)
+                    // Progress indicator every 50 frames
+                    if ((frame + 1) % 50 == 0)
                     {
                         cout << "    Progress: " << (frame + 1) << "/" << BENCHMARK_FRAMES << " frames" << endl;
                     }
@@ -842,7 +839,7 @@ void runAutomatedBenchmark(
         }
     }
 
-    cout << "AUTOMATED BENCHMARK COMPLETE" << endl;
+    cout << "Done with testing transforms" << endl;
     cout << "Total measurements: " << performanceLog.size() << endl;
 
     // Automatically save results
@@ -859,11 +856,11 @@ int main()
         return -1;
     }
 
-    // GLFW window hints to use OpenGL 3.3 core profile
+    // glfw setup
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // Required for macOS
+    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // needed for mac
 
     // Create VideoCapture object
     VideoCapture cap(1);
@@ -904,18 +901,16 @@ int main()
         return -1;
     }
 
-    // --- SHADER SETUP ---
+    // Setting up shaders
     // Compile vertex shader
     unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
     glCompileShader(vertexShader);
-    // NOTE: You should add error checking for shader compilation in a real application
 
     // Compile fragment shader
     unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
     glCompileShader(fragmentShader);
-    // NOTE: You should add error checking for shader compilation in a real application
 
     // Link shaders into a shader program
     unsigned int shaderProgram = glCreateProgram();
@@ -951,7 +946,7 @@ int main()
 
     // Vertex data for a quad
     float vertices[] = {
-        // Positions   // Texture coordinates
+        // Positions and Texture Coords
         -1.0f, 1.0f, 0.0f, 0.0f, // Top-left
         1.0f, 1.0f, 1.0f, 0.0f,  // Top-right
         1.0f, -1.0f, 1.0f, 1.0f, // Bottom-right
@@ -1020,7 +1015,7 @@ int main()
         cap >> frame;
         if (frame.empty())
         {
-            cerr << "Error: Could not read frame!" << endl;
+            cerr << "Error: Something wrong, not getting frames" << endl;
             break;
         }
 

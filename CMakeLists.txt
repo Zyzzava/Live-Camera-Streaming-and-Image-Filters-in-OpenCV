@@ -3,7 +3,7 @@ project(OpenGLWebcam)
 
 set(CMAKE_CXX_STANDARD 14)
 
-# Explicitly specify the path to the GLEW library
+# had to do this to find GLEW on mac
 set(GLEW_LIBRARY "/opt/homebrew/lib/libGLEW.dylib" CACHE STRING "Path to GLEW library" FORCE)
 
 find_package(OpenCV REQUIRED)
