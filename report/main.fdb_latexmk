@@ -1,17 +1,9 @@
 # Fdb version 4
-["bibtex main"] 0 "main.aux" "main.bbl" "main" 1760787716.256 0
-  "/usr/local/texlive/2025/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "main.aux" 0 -1 0 "pdflatex"
-  "references.bib" 0 -1 0 ""
-  (generated)
-  "main.bbl"
-  "main.blg"
-  (rewritten before read)
-["pdflatex"] 1760787714.06062 "/Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7. Semester/Visual Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/report/main.tex" "main.pdf" "main" 1760787716.25611 0
+["pdflatex"] 1760800419.84622 "/Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7. Semester/Visual Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/report/main.tex" "main.pdf" "main" 1760800421.92944 0
   "../data/plots/performance_comparison_transforms.png" 1760785236.54384 320669 5c12f5389065554e4e62c6c7a5fbf773 ""
   "../data/plots/resolution_impact.png" 1760785247.72851 649567 1d305807199ecae33909bb9ed8990b4a ""
   "../data/plots/transform_comparison.png" 1760785240.00832 186486 838b07b1091983eb31d87100f6ee1846 ""
-  "/Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7. Semester/Visual Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/report/main.tex" 1760787713.79866 6675 783c91cf564dddc13681c861e0509bfd ""
+  "/Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7. Semester/Visual Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/report/main.tex" 1760800417.87757 9236 ea27ea36f99b0280f785794605e6f4b6 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -29,12 +21,14 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm" 1136768653 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb" 1248133631 24252 1e4e051947e12dfb50fee0b7f4e26e3a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb" 1215737283 136101 f533469f523533d38317ab5729d00c8a ""
   "/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2025/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -107,11 +101,10 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1757580074 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1757580055 3345731 390899889ec597bfc9a15908e0f9f7d8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "main.aux" 1760787716.05941 4851 c4a44802db579e64b4350c3effa6c678 "pdflatex"
-  "main.bbl" 0 -1 0 "bibtex main"
-  "main.out" 1760787716.06027 3864 b4f4546559bc16b2aa394faf79b76269 "pdflatex"
-  "main.tex" 1760787713.79866 6675 783c91cf564dddc13681c861e0509bfd ""
-  "main.toc" 1760787716.06044 2150 bb2d9ef4d9375cc38b732b6066782a3f "pdflatex"
+  "main.aux" 1760800421.8877 5423 9dcaeb284c47709b497a0210ed0cedeb "pdflatex"
+  "main.out" 1760800421.8886 4803 5f4d4f79e75ee110c898302b7533bf67 "pdflatex"
+  "main.tex" 1760800417.87757 9236 ea27ea36f99b0280f785794605e6f4b6 ""
+  "main.toc" 1760800421.88883 2596 84db52378b95e254b62975ab727660f2 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

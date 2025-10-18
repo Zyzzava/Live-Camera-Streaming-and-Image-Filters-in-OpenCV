@@ -185,38 +185,62 @@ Three resolutions were benchmarked:
     \end{tabular}
 \end{table}
 
-% TODO: Import actual data from CSV files
-
 \section{Analysis and Discussion}
 
 \subsection{CPU vs GPU Performance}
-% TODO: Discuss the performance differences between CPU and GPU
-
-\subsection{Filter Complexity}
-% TODO: Analyze how filter complexity affects performance
-
-\subsection{Resolution Impact}
-% TODO: Discuss how resolution affects both CPU and GPU performance
-
-\subsection{Transform Overhead}
-% TODO: Analyze the cost of geometric transformations
-
-\subsection{Practical Implications}
-% TODO: Discuss when to use CPU vs GPU processing
-
-\section{Conclusion}
-% TODO: Summarize key findings and conclusions
-
-\subsection{Future Work}
-Potential improvements and extensions:
+\subsubsection{Unexpected GPU Performance}
+The most striking finding from the benchmarks is that GPU processing shows no performance advantage over CPU processing for most filters, and in some cases performs slightly worse (speedup factors of 0.98-0.99). This is somewhat counterintuitive, and some of the factors that could lead to this are being listed below:
 \begin{itemize}
-    \item Implement additional filters (bilateral, morphological operations)
-    \item Test on different hardware configurations
-    \item Optimize shader code for better GPU utilization
-    \item Implement real-time performance adaptation
+    \item \textbf{Memory Transfer Overhead}: Each of the frames are going from system RAM to GPU memory as a texture. Now for the tested resolutions all the way up to 1920×1080, this transfer time dominates the processing time, negating any computational advantages.
+    \item \textbf{Simple Filter Complexity}: Most implemented filters (grayscale, blur, edge detection) are relatively simple operations. The computational load is low enough that the CPU can handle them efficiently without the need for parallel GPU processing. Hardware used is a M4 Pro chip with 16 core CPU.
+    \item \textbf{Webcam Framerate Limitation}: The camera operates at approximately 30 FPS maximum, creating a bottleneck that prevents either of the processing methods from showing its full potential.
 \end{itemize}
 
-\bibliographystyle{plain}
-\bibliography{references}
+\subsection{Filter Complexity}
+\subsubsection{Filter Performance Characteristics}
+All filters except Comic Art maintain similar performance (~30 FPS on both CPU and GPU), suggesting:
+\begin{enumerate}
+    \item The camera capture rate is the primary bottleneck
+    \item Simple filters don't stress either processing architecture
+    \item More complex filters (Comic Art) reveal processing architecture differences, which is therefore also the most interesting filter
+\end{enumerate}
+
+\subsection{Resolution Impact}
+From the resolution benchmark data (VGA to Full HD, representing a 6.75 times pixel increase):
+\begin{itemize}
+    \item \textbf{FPS Variation}: Performance drops for the CPU are very evident, compared to the GPU, when upscaling resolution, performance worsens. Like seen in \ref{fig:resolution_impact}. This is because the CPU has to handle more data without the parallel processing capabilities of the GPU.
+\end{itemize}
+
+\subsubsection{Implications}
+The results suggest that for higher resolutions, GPU processing becomes more advantageous due to its ability to handle larger data sets more efficiently through parallelism. This is especially true for more complex filters, where the computational load is higher. 
+
+\subsection{Transform Overhead}
+\subsubsection{GPU Transform Efficiency}
+Geometric transformations on the GPU (vertex shader operations) show negligible overhead:
+\begin{itemize}
+    \item Transformations are mathematical operations on 4 vertices per frame
+    \item GPU vertex processors handle these operations trivially
+    \item No measurable FPS difference between transformed and non-transformed rendering
+\end{itemize}
+
+\subsubsection{CPU Transform Cost}
+CPU transformations using \texttt{warpAffine()} introduce overhead:
+\begin{itemize}
+    \item Requires interpolation calculations for every pixel
+    \item Memory access patterns become less cache-friendly
+    \item Additional processing step in the pipeline
+\end{itemize}
+
+However, the overhead remains minimal (~1-2\% FPS reduction) due to:
+\begin{itemize}
+    \item Camera framerate limiting overall throughput
+    \item Efficient OpenCV implementation
+    \item Simple affine transformations (not perspective warps)
+\end{itemize}
+
+\subsection{Shader design and its limitations}
+
+\subsection{Showcasing filters}
+
 
 \end{document}
