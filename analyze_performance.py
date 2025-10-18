@@ -15,38 +15,12 @@ PLOTS_DIR = os.path.join(DATA_DIR, 'plots')
 TABLES_DIR = os.path.join(DATA_DIR, 'tables')
 
 def setup_directories():
-    """Create directory structure for outputs"""
     os.makedirs(PLOTS_DIR, exist_ok=True)
     os.makedirs(TABLES_DIR, exist_ok=True)
-    print(f"Output directories created:")
-    print(f"  - {PLOTS_DIR}/")
-    print(f"  - {TABLES_DIR}/")
 
 def load_data(filename, data_type="general"):
-    """Load performance data from CSV"""
     try:
         df = pd.read_csv(filename)
-        
-        # Clean the data
-        print(f"\nLoaded {len(df)} performance measurements from {filename}")
-        
-        # Remove any rows with missing critical data
-        initial_count = len(df)
-        df = df.dropna(subset=['FilterName', 'ExecutionMode', 'FPS', 'FrameTime_ms'])
-        if len(df) < initial_count:
-            print(f"Warning: Removed {initial_count - len(df)} rows with missing data")
-        
-        # Ensure correct data types
-        df['FilterName'] = df['FilterName'].astype(str)
-        df['ExecutionMode'] = df['ExecutionMode'].astype(str)
-        df['HasTransform'] = df['HasTransform'].astype(str)
-        df['Resolution'] = pd.to_numeric(df['Resolution'], errors='coerce')
-        df['FPS'] = pd.to_numeric(df['FPS'], errors='coerce')
-        df['FrameTime_ms'] = pd.to_numeric(df['FrameTime_ms'], errors='coerce')
-        
-        print(f"\nData overview:")
-        print(f"  Filters: {df['FilterName'].unique().tolist()}")
-        print(f"  Execution modes: {df['ExecutionMode'].unique().tolist()}")
         
         if 'Resolution' in df.columns:
             resolutions = sorted([int(x) for x in df['Resolution'].unique() if pd.notna(x)])
@@ -69,48 +43,25 @@ def load_data(filename, data_type="general"):
         return None
 
 def analyze_transforms(filename='performance_transforms.csv'):
-    """Analyze transform benchmark data"""
-    print("\n" + "="*80)
-    print("ANALYZING TRANSFORM BENCHMARK DATA")
-    print("="*80)
-    
     df = load_data(filename, "transforms")
-    if df is None:
-        return
-    
-    # Generate transform-specific plots
     plot_fps_comparison(df, "transforms")
     plot_transform_comparison(df)
-    
-    # Generate summary tables
     generate_summary_table(df, "transforms")
-    
+
     return df
 
 def analyze_resolutions(filename='performance_resolution.csv'):
-    """Analyze resolution benchmark data"""
-    print("\n" + "="*80)
-    print("ANALYZING RESOLUTION BENCHMARK DATA")
-    print("="*80)
-    
     df = load_data(filename, "resolution")
-    if df is None:
-        return
-    
-    # Generate resolution-specific plots
     plot_resolution_impact(df)
-    
-    # Generate summary tables
     generate_summary_table(df, "resolution")
     generate_resolution_table(df)
     
     return df
 
 def plot_fps_comparison(df, suffix=""):
-    """Compare FPS across different filters and execution modes"""
     fig, axes = plt.subplots(2, 2, figsize=(15, 12))
     
-    # 1. FPS by Filter and Execution Mode (No Transform)
+    # FPS by Filter and Execution Mode (No Transform)
     ax1 = axes[0, 0]
     df_no_transform = df[df['HasTransform'] == 'No']
     
@@ -132,7 +83,7 @@ def plot_fps_comparison(df, suffix=""):
         ax1.text(0.5, 0.5, 'No data without transforms', 
                 ha='center', va='center', transform=ax1.transAxes)
     
-    # 2. Frame Time Comparison
+    # Frame Time Comparison
     ax2 = axes[0, 1]
     if len(df_no_transform) > 0:
         df_pivot_time = df_no_transform.pivot_table(
@@ -152,7 +103,7 @@ def plot_fps_comparison(df, suffix=""):
         ax2.text(0.5, 0.5, 'No data without transforms', 
                 ha='center', va='center', transform=ax2.transAxes)
     
-    # 3. GPU vs CPU Speedup
+    # GPU vs CPU Speedup
     ax3 = axes[1, 0]
     if len(df_no_transform) > 0:
         df_pivot_speedup = df_no_transform.pivot_table(
@@ -188,7 +139,7 @@ def plot_fps_comparison(df, suffix=""):
         ax3.text(0.5, 0.5, 'No data available', 
                 ha='center', va='center', transform=ax3.transAxes)
     
-    # 4. Transform Impact
+    # Transform Impact
     ax4 = axes[1, 1]
     if len(df['HasTransform'].unique()) > 1:
         df_transform = df.groupby(['ExecutionMode', 'HasTransform'])['FPS'].mean().unstack()
@@ -220,7 +171,6 @@ def plot_fps_comparison(df, suffix=""):
     plt.show()
 
 def plot_transform_comparison(df):
-    """Detailed comparison of transform impact"""
     if len(df['HasTransform'].unique()) <= 1:
         print("Skipping transform comparison (only one transform config)")
         return
@@ -301,14 +251,13 @@ def plot_transform_comparison(df):
     plt.show()
 
 def plot_resolution_impact(df):
-    """Plot resolution impact on performance"""
     if len(df['Resolution'].unique()) <= 1:
         print("Skipping resolution impact (only one resolution)")
         return
     
     fig, axes = plt.subplots(2, 2, figsize=(15, 12))
     
-    # 1. FPS vs Resolution by Mode
+    # FPS vs Resolution by Mode
     ax1 = axes[0, 0]
     resolution_data = []
     
@@ -327,7 +276,7 @@ def plot_resolution_impact(df):
     ax1.legend()
     ax1.grid(True, alpha=0.3)
     
-    # Add resolution labels
+    # resolution labels
     res_labels = {
         640*480: 'VGA\n640x480',
         1280*720: 'HD\n1280x720',
@@ -337,7 +286,7 @@ def plot_resolution_impact(df):
     ax1.set_xticks(unique_res)
     ax1.set_xticklabels([res_labels.get(r, f'{r}') for r in unique_res])
     
-    # 2. Frame Time vs Resolution
+    # Frame Time vs Resolution
     ax2 = axes[0, 1]
     for mode in df['ExecutionMode'].unique():
         df_mode = df[df['ExecutionMode'] == mode]
@@ -353,7 +302,7 @@ def plot_resolution_impact(df):
     ax2.set_xticks(unique_res)
     ax2.set_xticklabels([res_labels.get(r, f'{r}') for r in unique_res])
     
-    # 3. Filter performance across resolutions (GPU)
+    # Filter performance across resolutions (GPU)
     ax3 = axes[1, 0]
     df_gpu = df[df['ExecutionMode'] == 'GPU']
     
@@ -371,7 +320,7 @@ def plot_resolution_impact(df):
     ax3.set_xticks(unique_res)
     ax3.set_xticklabels([res_labels.get(r, f'{r}') for r in unique_res])
     
-    # 4. Resolution scaling efficiency
+    # Resolution scaling efficiency
     ax4 = axes[1, 1]
     
     # Calculate pixels per second for each mode/resolution
@@ -412,10 +361,6 @@ def plot_resolution_impact(df):
     plt.show()
 
 def generate_summary_table(df, suffix=""):
-    """Generate summary statistics table"""
-    print("\n" + "="*80)
-    print(f"PERFORMANCE SUMMARY ({suffix.upper()})")
-    print("="*80)
     
     # Overall statistics
     summary = df.groupby(['ExecutionMode', 'FilterName']).agg({
@@ -423,88 +368,46 @@ def generate_summary_table(df, suffix=""):
         'FrameTime_ms': ['mean', 'std']
     }).round(2)
     
-    print("\nDetailed Statistics:")
-    print(summary)
-    
     # Save to CSV
     summary_path = os.path.join(TABLES_DIR, f'detailed_statistics_{suffix}.csv')
     summary.to_csv(summary_path)
     print(f"\nSaved detailed statistics: {summary_path}")
     
     # GPU vs CPU comparison
-    print("\n" + "-"*80)
-    print("GPU vs CPU Average Performance:")
-    print("-"*80)
     mode_comparison = df.groupby(['ExecutionMode', 'HasTransform'])[['FPS', 'FrameTime_ms']].mean()
-    print(mode_comparison)
     
     mode_path = os.path.join(TABLES_DIR, f'mode_comparison_{suffix}.csv')
     mode_comparison.to_csv(mode_path)
     print(f"Saved mode comparison: {mode_path}")
     
     # Best and worst performers
-    print("\n" + "-"*80)
-    print("Top 5 Performing Configurations:")
-    print("-"*80)
     top5 = df.nlargest(5, 'FPS')[['FilterName', 'ExecutionMode', 'HasTransform', 'FPS', 'FrameTime_ms']]
-    print(top5)
-    
     top5_path = os.path.join(TABLES_DIR, f'top_performers_{suffix}.csv')
     top5.to_csv(top5_path, index=False)
     print(f"Saved top performers: {top5_path}")
     
-    print("\n" + "-"*80)
-    print("Bottom 5 Performing Configurations:")
-    print("-"*80)
     bottom5 = df.nsmallest(5, 'FPS')[['FilterName', 'ExecutionMode', 'HasTransform', 'FPS', 'FrameTime_ms']]
-    print(bottom5)
     
     bottom5_path = os.path.join(TABLES_DIR, f'bottom_performers_{suffix}.csv')
     bottom5.to_csv(bottom5_path, index=False)
     print(f"Saved bottom performers: {bottom5_path}")
 
 def generate_resolution_table(df):
-    """Generate detailed resolution comparison table"""
     if len(df['Resolution'].unique()) <= 1:
         return
     
-    print("\n" + "="*80)
-    print("RESOLUTION PERFORMANCE ANALYSIS")
-    print("="*80)
-    
-    # Create resolution name mapping
+    # res name mapping
     res_names = {
         640*480: 'VGA (640x480)',
         1280*720: 'HD (1280x720)',
         1920*1080: 'Full HD (1920x1080)'
     }
     
-    # Summary by resolution and mode
+    # Summary by res and mode
     res_summary = df.groupby(['Resolution', 'ExecutionMode']).agg({
         'FPS': ['mean', 'std', 'min', 'max'],
         'FrameTime_ms': ['mean']
     }).round(2)
-    
-    print("\nPerformance by Resolution:")
-    print(res_summary)
-    
-    # Calculate relative performance
-    print("\n" + "-"*80)
-    print("Relative Performance (vs VGA):")
-    print("-"*80)
-    
-    base_res = min(df['Resolution'].unique())
-    
-    for mode in df['ExecutionMode'].unique():
-        print(f"\n{mode} Mode:")
-        df_mode = df[df['ExecutionMode'] == mode]
-        base_fps = df_mode[df_mode['Resolution'] == base_res]['FPS'].mean()
-        
-        for res in sorted(df['Resolution'].unique()):
-            res_fps = df_mode[df_mode['Resolution'] == res]['FPS'].mean()
-            relative = (res_fps / base_fps) * 100
-            res_name = res_names.get(res, f'{res}')
-            print(f"  {res_name}: {relative:.1f}% of VGA performance")
     
     # Save to CSV
     res_table_path = os.path.join(TABLES_DIR, 'resolution_summary.csv')
@@ -512,20 +415,11 @@ def generate_resolution_table(df):
     print(f"\nSaved resolution summary: {res_table_path}")
 
 def generate_combined_report(transform_df, resolution_df):
-    """Generate a combined report from both datasets"""
     report_path = os.path.join(DATA_DIR, 'performance_report.txt')
     
     with open(report_path, 'w') as f:
-        f.write("="*80 + "\n")
-        f.write("COMPREHENSIVE PERFORMANCE ANALYSIS REPORT\n")
-        f.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-        f.write("="*80 + "\n\n")
-        
         # Transform benchmark summary
         if transform_df is not None:
-            f.write("-"*80 + "\n")
-            f.write("TRANSFORM BENCHMARK SUMMARY\n")
-            f.write("-"*80 + "\n")
             f.write(f"Total measurements: {len(transform_df)}\n")
             
             filters = [str(x) for x in transform_df['FilterName'].unique() if pd.notna(x)]
@@ -550,11 +444,6 @@ def generate_combined_report(transform_df, resolution_df):
         
         # Resolution benchmark summary
         if resolution_df is not None:
-            f.write("\n" + "-"*80 + "\n")
-            f.write("RESOLUTION BENCHMARK SUMMARY\n")
-            f.write("-"*80 + "\n")
-            f.write(f"Total measurements: {len(resolution_df)}\n")
-            
             res_names = {
                 640*480: 'VGA (640x480)',
                 1280*720: 'HD (1280x720)',
@@ -576,48 +465,15 @@ def generate_combined_report(transform_df, resolution_df):
                             avg_fps = df_res['FPS'].mean()
                             res_name = res_names.get(int(res), f'{int(res)} pixels')
                             f.write(f"  {res_name}: {avg_fps:.2f} FPS\n")
-        
-        f.write("\n" + "="*80 + "\n")
-        f.write("END OF REPORT\n")
-        f.write("="*80 + "\n")
-    
-    print(f"\nGenerated combined report: {report_path}")
 
 def main():
-    """Main analysis function"""
     # Setup directories
     setup_directories()
-    
-    print("\n" + "="*80)
-    print("PERFORMANCE ANALYSIS SUITE")
-    print("="*80)
-    
     # Analyze both datasets
-    transform_df = None
-    resolution_df = None
-    
-    # Check which files exist
-    if os.path.exists('performance_transforms.csv'):
-        transform_df = analyze_transforms()
-    else:
-        print("\nWarning: performance_transforms.csv not found, skipping transform analysis")
-    
-    if os.path.exists('performance_resolution.csv'):
-        resolution_df = analyze_resolutions()
-    else:
-        print("\nWarning: performance_resolution.csv not found, skipping resolution analysis")
-    
+    transform_df = analyze_transforms()
+    resolution_df = analyze_resolutions()
     # Generate combined report if we have any data
-    if transform_df is not None or resolution_df is not None:
-        generate_combined_report(transform_df, resolution_df)
-    
-    print("\n" + "="*80)
-    print("ANALYSIS COMPLETE!")
-    print("="*80)
-    print(f"\nAll outputs saved to '{DATA_DIR}/' directory:")
-    print(f"  - Plots: {PLOTS_DIR}/")
-    print(f"  - Tables: {TABLES_DIR}/")
-    print(f"  - Report: {os.path.join(DATA_DIR, 'performance_report.txt')}")
+    generate_combined_report(transform_df, resolution_df)
 
 if __name__ == "__main__":
     main()
