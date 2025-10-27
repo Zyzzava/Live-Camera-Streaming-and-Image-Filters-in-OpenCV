@@ -21,6 +21,6 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/filters)
 
-add_executable(OpenGLWebcam main.cpp filters/filters.cpp filters/filters.h)
+add_executable(OpenGLWebcam main.cpp filters/filters.cpp filters/filters.h shaders.h shaders.cpp utils.cpp utils.h types.h benchmark.cpp benchmark.h input_handler.h input_handler.cpp)
 
 target_link_libraries(OpenGLWebcam ${OpenCV_LIBS} OpenGL::GL glfw ${GLEW_LIBRARY})
