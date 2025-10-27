@@ -1,9 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1761588766.51122 "/Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7. Semester/Visual Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/report/main.tex" "main.pdf" "main" 1761588769.97935 0
+["pdflatex"] 1761588865.1887 "/Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7. Semester/Visual Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/report/main.tex" "main.pdf" "main" 1761588868.58218 0
   "../data/plots/performance_comparison_transforms.png" 1760785236.54384 320669 5c12f5389065554e4e62c6c7a5fbf773 ""
   "../data/plots/resolution_impact.png" 1760785247.72851 649567 1d305807199ecae33909bb9ed8990b4a ""
   "../data/plots/transform_comparison.png" 1760785240.00832 186486 838b07b1091983eb31d87100f6ee1846 ""
-  "/Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7. Semester/Visual Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/report/main.tex" 1761588766.29441 15976 1a64ff1c6c954e669c7066a5659ce465 ""
+  "/Users/madspagh/Library/CloudStorage/OneDrive-Aarhusuniversitet/7. Semester/Visual Computing/Live-Camera-Streaming-and-Image-Filters-in-OpenCV/report/main.tex" 1761588862.81738 15890 5f6edef02dbc5a29a226fd80a6d7b405 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
@@ -116,10 +116,10 @@
   "filters/gblur.png" 1761584646.23022 1536836 91717aec1fa18fb51d615dc9f755e78f ""
   "filters/grey.png" 1761584637.51344 1131473 a4aa0612f38a6d7909b2762cbd385d33 ""
   "filters/pixelatio.png" 1761584675.83064 261055 ad2d00e507b97aed5b4ea2a6155fc280 ""
-  "main.aux" 1761588769.92839 8333 c34c521023de7760e600c460b409ae50 "pdflatex"
-  "main.out" 1761588769.92945 5206 7b530d3ead21ccde667e44695deb42f2 "pdflatex"
-  "main.tex" 1761588766.29441 15976 1a64ff1c6c954e669c7066a5659ce465 ""
-  "main.toc" 1761588769.92967 3136 c75330095b9d3b7c1a102ac6f98cc728 "pdflatex"
+  "main.aux" 1761588868.53151 8169 d2ebbe7f5f80152c3ecef700da15151c "pdflatex"
+  "main.out" 1761588868.53258 5206 7b530d3ead21ccde667e44695deb42f2 "pdflatex"
+  "main.tex" 1761588862.81738 15890 5f6edef02dbc5a29a226fd80a6d7b405 ""
+  "main.toc" 1761588868.53285 3136 c75330095b9d3b7c1a102ac6f98cc728 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
