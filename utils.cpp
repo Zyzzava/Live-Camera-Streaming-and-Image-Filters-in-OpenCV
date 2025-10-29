@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 
+// Compile shader program from vertex and fragment shader sources
 unsigned int compileShaderProgram(const char *vertexSource, const char *fragmentSource)
 {
     // Compile vertex shader
@@ -27,6 +28,7 @@ unsigned int compileShaderProgram(const char *vertexSource, const char *fragment
     return program;
 }
 
+// Check for shader compilation errors
 void writePerformanceCSV(const std::vector<PerformanceData> &data, const std::string &filename)
 {
     std::ofstream file(filename);
@@ -46,6 +48,7 @@ void writePerformanceCSV(const std::vector<PerformanceData> &data, const std::st
     std::cout << "Performance data written to " << filename << std::endl;
 }
 
+// Apply CPU-based transformation using OpenCV
 cv::Mat applyCPUTransform(const cv::Mat &input, const TransformParams &params)
 {
     cv::Mat output = cv::Mat::zeros(input.size(), input.type());

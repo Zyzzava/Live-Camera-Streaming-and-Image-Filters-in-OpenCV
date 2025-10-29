@@ -3,8 +3,11 @@
 
 namespace Shaders
 {
+    // Shader source code declarations
     extern const char *vertexShaderSource;
+    // Fragment shader sources
     extern const char *fragmentShaderSource;
+    // Filter shaders
     extern const char *grayscaleShaderSource;
     extern const char *blurShaderSource;
     extern const char *edgeShaderSource;

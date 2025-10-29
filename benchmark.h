@@ -9,6 +9,7 @@
 #include <GLFW/glfw3.h>
 #include "types.h"
 
+// Run resolution benchmark function declaration
 void runResolutionBenchmark(
     cv::VideoCapture &cap,
     GLFWwindow *window,
@@ -17,6 +18,7 @@ void runResolutionBenchmark(
     unsigned int texture,
     std::vector<PerformanceData> &performanceLog);
 
+// Run automated benchmark function declaration with optional transform testing
 void runAutomatedBenchmark(
     cv::VideoCapture &cap,
     GLFWwindow *window,
