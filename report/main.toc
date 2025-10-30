@@ -17,3 +17,4 @@
 \contentsline {subsection}{\numberline {3.4}GPU Pipeline Architecture and Bottlenecks}{8}{subsection.3.4}%
 \contentsline {subsubsection}{\numberline {3.4.1}Conclusion}{8}{subsubsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.5}Showcasing Filters}{9}{subsection.3.5}%
+\contentsline {section}{\numberline {4}AI Declaration}{10}{section.4}%

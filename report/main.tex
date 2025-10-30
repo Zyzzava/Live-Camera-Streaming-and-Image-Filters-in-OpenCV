@@ -207,7 +207,7 @@ The most striking finding is that GPU processing shows no advantage for most fil
 \\
 This unexpected result likely stems from three critical factors. First, memory transfer overhead dominates processing time for simple operations. Each frame requires uploading several megabytes from system RAM to GPU memory via \texttt{glTexImage2D()}, and at Full HD resolution (2,073,600 pixels), this transfer cost exceeds the computational savings from GPU parallelism. Second, the simple filters (grayscale, blur, edge detection) impose minimal computational load. The M4 Pro's 16-core CPU with SIMD optimizations handles these operations efficiently without requiring GPU parallelism. Third, the webcam's 30 FPS limit creates a performance ceiling that prevents either architecture from demonstrating its full capability.
 \\
-The Comic Art filter breaks this pattern because it combines multiple operations (edge detection + color quantization) in a single GPU pass, paying off the transfer overhead across more computation. This reveals the threshold where GPU acceleration becomes beneficial: when computational complexity significantly exceeds data transfer costs. As shown in Table \ref{tab:shader_cpu_comparison}, the CPU avoids synchronization overhead and keeps data in RAM, while the GPU must transfer data every frame and synchronize via \texttt{glfwSwapBuffers()}, introducing 1-3ms latency per frame.
+The Comic Art filter breaks this pattern because it combines multiple operations (edge detection + color quantization) in a single GPU pass, paying off the transfer overhead across more computation. This reveals the threshold where GPU acceleration becomes beneficial: when computational complexity significantly exceeds data transfer costs. As shown in Table \ref{tab:shader_cpu_comparison}, the CPU avoids synchronization overhead and keeps data in RAM, while the GPU must transfer data every frame and synchronize via \texttt{glfwSwapBuffers()}, introducing some ms latency per frame.
 
 \subsection{Filter Complexity}
 All filters except Comic Art maintain similar performance (~30 FPS on both CPU and GPU), revealing that the camera capture rate acts as the primary bottleneck rather than processing capability. Simple filters (grayscale, blur, edge detection, pixelation) fail to stress either processing architecture at typical webcam frame rates, resulting in near-identical performance regardless of execution mode. Only the Comic Art filter, with its multi-stage processing pipeline combining edge detection and color quantization, introduces sufficient computational complexity to expose meaningful differences between CPU and GPU architectures, making it the most revealing filter for understanding when GPU acceleration becomes advantageous.
@@ -254,7 +254,7 @@ Table \ref{tab:shader_cpu_comparison} shows why CPU wins for simple filters: dat
 \textbf{Aspect} & \textbf{GPU} & \textbf{CPU} \\
 \midrule
 Data Transfer & Every frame & Stays in RAM \\
-Synchronization & 1-3 ms/frame & None \\
+Synchronization & Some ms/frame & None \\
 Parallelism & Massive & Limited \\
 Transform Cost & 4 vertices & All pixels \\
 \bottomrule
@@ -306,6 +306,18 @@ This investigation reveals that GPU acceleration is not universally superior for
     \caption{Visual comparison of implemented filters applied to the same input frame. (a) Grayscale conversion reduces color information. (b) Gaussian blur creates smoothing effect. (c) Edge detection highlights contours using Sobel operator. (d) Pixelation creates blocky mosaic effect. (e) Comic art combines edge detection with color quantization for artistic effect.}
     \label{fig:filter_comparison}
 \end{figure}
+
+\newpage
+\section{AI Declaration}
+I used generative artificial intelligence to complete this project:
+\begin{itemize}
+    \item Gemini 2.5 Pro
+\end{itemize}
+I have used GAI tools in the following way:
+\begin{itemize}
+    \item With Python syntax understanding for plotting
+    \item To understand topics and technical setups
+\end{itemize}
 
 
 \end{document}
